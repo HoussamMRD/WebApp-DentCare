@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Add Facture</title>
+</head>
+
+
+
+
+<style>
+       
+       
+ body, html {
+  height: 100%;
+  background-image: url('https://img.freepik.com/premium-vector/abstract-medical-background-with-flat-icons-symbols_120542-613.jpg?w=2000');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  
+
+ 
+}
+
+
+
+
+
+
+
+</style>
+
+
+<body>
+	<div class="container">
+		<h3></h3>
+		<hr>
+		
+		<p class="h4 mb-4"  style="color:rgba(135,206,235);font-size:40px;font-weight:bold;text-shadow:3px 3px 3px rgb(87, 85, 85)"   >New Facture</p>
+		
+		<form action="#" th:action="@{/factures/save}"
+						 th:object="${Facture}" method="POST">
+			
+			<!-- Add hidden form field to handle the update -->
+			<input type="hidden" th:field="*{id}" />
+						 
+			<input type="text" th:field="*{NamePatient}"
+					class="form-control mb-4 col-4" placeholder="NamePatient">
+					
+			<input type="text" th:field="*{MontantPayee}"
+					class="form-control mb-4 col-4" placeholder="MontantPayee">	
+					
+			<input type="text" th:field="*{ModePayment}"
+					class="form-control mb-4 col-4" placeholder="ModePayment">
+					
+			
+			
+		
+					
+			<button type="submit" class="btn btn-info col-2">Save</button>	
+		</form>
+		<hr>
+		<a th:href="@{/admin/dash/factures}">Back to list</a>
+	
+	</div>
+
+
+</body>
+
+</html>

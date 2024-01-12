@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+<head th:replace="frag2 :: headDash2" />
+	
+
+
+
+
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+
+<style>
+       
+       
+ body, html {
+  height: 100%;
+  background-image: url('https://img.freepik.com/premium-vector/abstract-medical-background-with-flat-icons-symbols_120542-613.jpg?w=2000');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  
+
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+<body  th:replace="frag2 :: sideDash2" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class ="container">
+		<div class = "row">
+			<h1 style="color:rgba(135,206,235);font-size:50px;font-weight:bold;text-shadow:3px 3px 3px rgb(87, 85, 85)"  ALIGN=CENTER > List Patients </h1>
+		</div>
+		
+		<BR> 
+		<div class = "row">
+			<div class = "col-lg-3">
+				<a  style="color:rgba(0,255,255);font-size:18px;font-weight:bold;text-shadow:3px 3px 3px rgb(87, 85, 85)" th:href ="@{/user/dash/patientUser/AddPatientUser}" class = "btn btn-primary btn-sm mb-3"> Add New Patient</a>
+			</div>
+		</div>
+		
+		
+	
+		 <form th:action="@{/search}" method="get">
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by  Name " size="50" >
+  <button type="submit" class="btn btn-info" >Search</button>
+  <button type="submit" class="btn btn-info" >Reset</button>
+  </form>
+		
+		
+		
+		
+		
+		<table class = "table table-hover  text-center"  >
+			<thead class = "table-dark-striped "      >
+				<tr>
+
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>CIN</th>
+					<th>Email </th>
+					<th>Adress </th>
+					<th>Tel </th>
+					<th>Gender</th>
+					<th>DateNaissance</th>
+					<th> Actions</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "patientuser: ${patientUser}">
+					<td th:text = "${patientuser.FirstName}"></td>
+					<td th:text = "${patientuser.lastName}"></td>
+					<td th:text = "${patientuser.CIN}"></td>
+					<td th:text = "${patientuser.Email}"></td>
+					<td th:text = "${patientuser.Adress}"></td>
+					<td th:text = "${patientuser.Tel}"></td>
+					<td th:text = "${patientuser.Gender}"></td>
+					<td th:text = "${patientuser.DateNaissance}"></td>
+					<td>
+						<a th:href = "@{/user/dash/patientUser/editPatientUser/{id}(id=${patientuser.id})}"
+						 ><i class="fa fa-edit" ></i></a>
+						
+						<a th:href = "@{/user/dash/patientUser/{id}(id=${patientuser.id})}"
+						 ><i class="fa fa-remove"></i></a>
+						 
+					</td>
+				</tr>
+			</tbody>
+		
+		</table>
+		
+	</div>
+	
+	<hr>
+		<a style="color:rgba(250,128,114);font-size:15px;font-weight:bold;text-shadow:3px 3px 3px rgb(87, 85, 85)"  th:href="@{/user/dash}">Back to Dashboard </a>
+	
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
